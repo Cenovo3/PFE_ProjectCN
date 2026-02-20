@@ -1,6 +1,6 @@
 import requests
 
-def get_location(city_name, country=None, count=1):
+def get_location(city_name, country=None, count=0):
     url = "https://geocoding-api.open-meteo.com/v1/search"
     params = {
         "name": city_name,
@@ -54,8 +54,7 @@ def main():
             "elevation": weather["elevation"]
         }
         print("\n--- Weather Information ---")
-        for key, value in city_weather.items():
-            print(f"{key.capitalize()}: {value}")
+        print(city_weather)
     except Exception as e:
         print(f"Error: {e}")
 if __name__ == "__main__":
